@@ -2,10 +2,13 @@ from flask import Flask
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import environ
+
+from forms import PostsForm
+
 app = Flask(__name__)
 
 
-app.config['SECRET_KEY'] = environ.get('SECRET_KEY')
+app.config['SECRET_KEY'] = '60ae1c92bc03176e8976331683eb9c54'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://' + \
                                         environ.get('MYSQL_USER') + \
@@ -48,6 +51,12 @@ def home():
 @app.route('/about')
 def about():
     return render_template('about.html', title='About')
+
+
+@app.route('/add')
+def add():
+    form = PostsForm()
+    return render_template('post.html', title='Add a post', form=form)
 
 
 @app.route('/create')
