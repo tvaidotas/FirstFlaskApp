@@ -11,17 +11,7 @@ def hello_world():
 
 @app.route('/about')
 def about():
-    return '''
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>About Page</title>
-    </head>
-    <body>
-        <h1>This about page</h1>
-    </body>
-    </html>
-    '''
+    return render_template('about.html', title='About')
 
 
 if __name__ == '__main__':
