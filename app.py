@@ -21,7 +21,7 @@ dummyData = [
 
 @app.route('/')
 @app.route('/home')
-def hello_world():
+def home():
     return render_template('homepage.html', title='Homepage', posts=dummyData)
 
 
