@@ -23,7 +23,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://' + \
 
 db = SQLAlchemy(app)
 
-
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     f_name = db.Column(db.String(30), nullable=False)
